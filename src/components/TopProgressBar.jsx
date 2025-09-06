@@ -26,7 +26,7 @@ export default function TopProgressBar() {
   return (
     <div className="fixed top-0 left-0 w-full h-[3px] bg-transparent z-[9999]">
       <div
-        className="h-[3px] bg-gradient-to-r from-yellow-400 to-red-500 transition-all duration-300"
+        className="h-[3px] bg-gradient-to-r from-yellow-800 to-blue-950 transition-all duration-300"
         style={{ width: `${progress}%` }}
       />
     </div>

@@ -33,7 +33,7 @@ const Navbar = () => {
   const sattaLinks = [
     { id: 1, title: "Home", href: "/" },
     { id: 2, title: "Chart 2025", href: "/chart2025" },
-    { id: 3, title: "Chart 2024", href: "/chart2024" },
+    { id: 3, title: "Contact", href: "/contact" },
   ];
 
   return (
@@ -41,14 +41,14 @@ const Navbar = () => {
       {/* Scroll Progress */}
       <div className="fixed top-0 left-0 w-full h-1 z-50">
         <div
-          className="h-1 bg-gradient-to-r from-yellow-400 to-red-500 transition-all duration-150"
+          className="h-1 bg-gradient-to-r from-yellow-700 to-blue-950 transition-all duration-150"
           style={{ width: `${scrollProgress}%` }}
         ></div>
       </div>
 
       {/* Navbar */}
       <nav
-        className={`fixed top-0 left-0 w-full bg-gradientmidyellow4 shadow-lg z-40 transition-transform duration-500 ${
+        className={`fixed top-0 left-0 w-full bg-gradient shadow-lg z-40 transition-transform duration-500 ${
           showNavbar ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -58,9 +58,9 @@ const Navbar = () => {
               <Link
                 href={link.href}
                 key={link.id}
-                className="bg-gradientredblack text-center hover:-translate-y-1 flex items-center justify-center px-2 sm:px-5 md:px-6 py-2 sm:py-3 rounded cursor-pointer transition"
+                className="bg-gradient-to-b to-yellow-800 from-blue-950 text-center hover:-translate-y-1 flex items-center justify-center px-2 sm:px-5 md:px-6 py-2 sm:py-3 rounded cursor-pointer transition"
               >
-                <p className="text-base max-sm:text-sm m-0 font-bold uppercase text-white">
+                <p className="text-base max-sm:text-sm m-0 font-bold  text-white">
                   {link.title}
                 </p>
               </Link>

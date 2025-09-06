@@ -1,10 +1,10 @@
 import React from "react";
-import ChartTwo from "./ChartTwo";
+import Contact from "./Contact";
 
 const page = () => {
   return (
     <div>
-      <ChartTwo />
+      <Contact />
     </div>
   );
 };

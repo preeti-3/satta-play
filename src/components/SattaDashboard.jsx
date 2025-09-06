@@ -33,11 +33,11 @@ const SattaDashboard = () => {
       <div className="mx-auto bg-gradient">
         {/* Current Featured Game */}
         <div className="rounded-xl text-center">
-          <div className="bg-gradientmidyellow3 px-2 pt-20 pb-8">
-            <h2 className="text-4xl lg:text-5xl animate-bounce font-semibold  mt-24 text-theme-accent">
+          <div className="bg-gradient px-2 pt-20 pb-8">
+            <h2 className="text-4xl lg:text-5xl text-white animate-bounce font-semibold  mt-24 text-theme-accent">
               B1 SATTA
             </h2>
-            <p className="text-black pb-12 mt-10 px-4 text-2xl md:text-3xl font-semibold">
+            <p className="text-white pb-12 mt-10 px-4 text-2xl md:text-3xl font-semibold">
               यही आती हे सबसे पहले खबर रूको और देखो
               <br />
               SUPER FAST RESULTS
@@ -51,10 +51,10 @@ const SattaDashboard = () => {
         <div>
           <div className="bg-gradient p-6 text-center">
             <div className="">
-              <h2 className="sm:text-4xl lg:text-5xl text-2xl font-bold text-theme-accent mb-2 md:mb-6">
-                SEPTEMBER MONTHLY CHART
+              <h2 className="sm:text-4xl text-white lg:text-5xl text-2xl font-bold text-theme-accent mb-2 md:mb-6">
+                SEPTEMBER MONTH CHART
               </h2>
-              <p className="text-black text-2xl sm:text-4xl lg:text-5xl font-bold">
+              <p className="text-white text-2xl sm:text-4xl lg:text-5xl font-bold">
                 2025
               </p>
             </div>
@@ -65,14 +65,14 @@ const SattaDashboard = () => {
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse">
                   <thead>
-                    <tr className="bg-yellow-300">
-                      <th className="outline px-3 py-2 text-black text-sm sticky left-0 bg-yellow-300 z-10">
+                    <tr className="bg-gradient2">
+                      <th className="outline px-3 py-2 text-white text-sm sticky left-0 bg-gradient2 z-10">
                         S.No
                       </th>
                       {gameResults.slice(0, 10).map((game, index) => (
                         <th
                           key={index}
-                          className="border border-theme-primary px-3 py-2 text-black text-xs"
+                          className="border border-theme-primary px-3 py-2 text-white text-xs"
                         >
                           {game.name}
                         </th>
@@ -87,7 +87,7 @@ const SattaDashboard = () => {
                           rowIndex % 2 !== 0 ? "bg-gray-200" : ""
                         }`}
                       >
-                        <td className="px-3 py-2 text-center text-black bg-yellow-300 outline text-sm font-medium sticky left-0 z-10">
+                        <td className="px-3 py-2 text-center text-white bg-gradient2 outline text-sm font-medium sticky left-0 z-10">
                           {rowIndex + 1}
                         </td>
                         {gameResults.slice(0, 10).map((_, gameIndex) => (

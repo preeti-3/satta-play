@@ -1,13 +1,13 @@
 "use client";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import NotFound from "../NotFound";
 import Heading from "@/components/common/Heading";
 import YearlyTable from "@/components/YearlyTable";
 
 const DynamicTable = () => {
   const { slug } = useParams();
-  const [tableData, setTableData] = useState(null);
+  // const [tableData, setTableData] = useState(null);
   const [error, setError] = useState(false);
   console.log(slug, "slug")
   const yearlyData = {

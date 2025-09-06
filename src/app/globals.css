@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 @theme inline {
   --color-primary: 220 38 127; /* Deep purple */
@@ -11,34 +11,15 @@
 }
 .bg-gradient {
   background-color: transparent;
-  background-image: linear-gradient(180deg, #e7d63d 0%, #f47329 100%);
+  background-image: linear-gradient(180deg, #fca311 0%, #14213d 100%);
 }
 .bg-gradient2 {
   background-color: transparent;
-  background-image: linear-gradient(180deg, #EAEB97 0%, #f2295b 100%);
+  background-image: linear-gradient(180deg, #fca311 -119%, #14213d 100%);
 }
-.bg-gradientmidyellow {
-  background-color: transparent;
-  background-image: radial-gradient(at top center, #e7d63d 51%, #ee4a73 100%);
-}
-.bg-gradientmidyellow3 {
-  background-color: transparent;
-  background-image: radial-gradient(at bottom center, #e7d63d 25%, #ee4a73 90%);
-}
-.bg-gradientmidyellow4 {
-  background-color: transparent;
-  background-image: radial-gradient(at top center, #EAEB97  0%, #f2295b 100%);
-}
-.bg-gradientredblack {
-  background-color: transparent;
-  background-image: linear-gradient(180deg, #000 0%, #f2295b 100%);
-}
-.bg-gradientredblack2 {
-  background-color: transparent;
-  background-image: radial-gradient(at center center, #120e0e 55%, #f2295b 97%);
-}
-.roboto{
+
+.roboto {
   font-size: larger;
   font-weight: 700;
-  font-family: "ROBOTO",sans-serif;
+  font-family: "ROBOTO", sans-serif;
 }
