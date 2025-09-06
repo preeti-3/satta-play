@@ -177,15 +177,13 @@ const GameSection = () => {
 
         {/* Auto Changing Bet */}
         {highlightGame && (
-          <div className="bg-gradient mt-4 p-3 text-center w-full mx-auto">
+          <div className="bg-gradient2 mt-4 p-3 text-center w-full mx-auto">
             {/* Place Name */}
-            <p className="text-3xl font-semibold text-white mb-4">
-              {highlightGame.name}
-            </p>
+            <p className="text-3xl font-black mb-4">{highlightGame.name}</p>
 
             <div className="flex items-center gap-3 justify-center max-w-[350px] mx-auto">
               {/* Previous Day Number */}
-              <span className="text-xl text-white font-semibold">
+              <span className="text-xl font-semibold">
                 {highlightGame.prevNumber}
               </span>
 
@@ -195,7 +193,7 @@ const GameSection = () => {
               </span>
 
               {/* Today Number (WAITING case handle) */}
-              <span className="text-xl text-white font-semibold">
+              <span className="text-xl font-semibold">
                 {nextGame && nextGame.name === highlightGame.name ? (
                   <Image
                     className="mx-auto -mt-2"
@@ -218,7 +216,7 @@ const GameSection = () => {
       <section className="flex flex-col md:flex-row md:space-x-1 bg-white">
         <div className="text-center w-full">
           <div className="bg-gradient py-2.5 m-0 font-semibold">
-            <p className="text-4xl max-sm:text-lg mt-2 mb-0 md:my-5 text-white max-md:text-2xl">
+            <p className="text-4xl max-sm:text-lg mt-2 mb-0 md:my-5 max-md:text-2xl">
               --सीधे सट्टा कंपनी का No 1 खाईवाल--
             </p>
           </div>
@@ -240,15 +238,15 @@ const GameSection = () => {
               ))}
             </div>
 
-            <p className="mt-5 text-white text-xl">💸 Payment Option 💸</p>
-            <p className="text-white">
-              PAYTM//BANK TRANSFER//PHONE PAY//GOOGLE PAY =&lt; ⏺️9034460384⏺️
+            <p className="mt-5 text-xl">💸 Payment Option 💸</p>
+            <p>
+              PAYTM//BANK TRANSFER//PHONE PAY//GOOGLE PAY =&lt; ⏺️9996252688⏺️
               <br />
               ==========================
               <br />
               ==========================
             </p>
-            <p className="text-white">
+            <p>
               🤑Rate list💸
               <br />
               <br />
@@ -256,16 +254,14 @@ const GameSection = () => {
               <br />
               हरूफ रेट 100-----960
             </p>
-            <p className="text-white my-2">
-              ♕♕ &nbsp;MITTAL BHAI KHAIWAL &nbsp;♕♕
-            </p>
-            <p className="text-white">
-              <Link target="_blank" href="https://wa.me/+919034460384">
+            <p>♕♕ &nbsp;SAMEER BHAI KHAIWAL &nbsp;♕♕</p>
+            <p>
+              <Link target="_blank" href="https://wa.me/+917206591251">
                 Game play करने के लिये नीचे लिंक पर क्लिक करे
               </Link>
             </p>
             <div className="mx-auto max-w-[300px] mt-4 hover:scale-110 transition-all duration-300">
-              <Link target="_blank" href="https://wa.me/+919034460384">
+              <Link target="_blank" href="https://wa.me/+919817050720">
                 <Image
                   className="max-sm:w-[200px] mx-auto max-sm:h-16"
                   width={300}

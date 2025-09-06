@@ -23,9 +23,9 @@ const YearlyTable = ({ year, data }) => {
       <table className="min-w-full text-center">
         {/* Table Header */}
         <thead>
-          <tr className="bg-gradient2 text-white">
+          <tr className="bg-gradientredblack text-white">
             {/* Sticky year column */}
-            <th className="outline px-3 py-2 sticky left-0 bg-gradient2 z-10">
+            <th className="outline px-3 py-2 sticky left-0 bg-gradientredblack z-10">
               {year}
             </th>
             {months.map((month, idx) => (
@@ -40,7 +40,7 @@ const YearlyTable = ({ year, data }) => {
           {days.map((day) => (
             <tr key={day}>
               {/* Sticky day column */}
-              <td className="outline bg-gradient2 text-white font-semibold px-3 py-2 sticky left-0 z-10">
+              <td className="outline bg-gradientredblack text-white font-semibold px-3 py-2 sticky left-0 z-10">
                 {day}
               </td>
               {months.map((month, idx) => (

@@ -1,10 +1,11 @@
 import React from "react";
-import Contact from "./Contact";
+import ChartOne from "./ChartTwo";
+import ChartTwo from "./ChartTwo";
 
 const page = () => {
   return (
     <div>
-      <Contact />
+      <ChartTwo />
     </div>
   );
 };

@@ -1,17 +1,17 @@
 import Link from "next/link";
 
-const ChartOne = () => {
+const ChartTwo = () => {
   const sattaLinks = [
-    { id: 1, title: "DISAWER YEARLY CHART 2025" },
-    { id: 2, title: "SHRI GANESH YEARLY 2025" },
-    { id: 3, title: "GAZIYABAD YEARLY CHART 2025" },
-    { id: 4, title: "IPL YEARLY CHART 2025" },
-    { id: 5, title: "FARIDABAD YEARLY CHART 2025" },
-    { id: 6, title: "VARANASI YEARLY CHART 2025" },
-    { id: 7, title: "SIKANDERPUR YEARLY CHART 2025" },
-    { id: 8, title: "SURYA YEARLY CHART 2025" },
-    { id: 9, title: "GALI YEARLY CHART 2025" },
-    { id: 10, title: "DELHI BAZAR YEARLY CHART 2025" },
+    { id: 1, title: "DISAWER YEARLY CHART 2024" },
+    { id: 2, title: "SHRI GANESH YEARLY 2024" },
+    { id: 3, title: "GAZIYABAD YEARLY CHART 2024" },
+    { id: 4, title: "IPL YEARLY CHART 2024" },
+    { id: 5, title: "FARIDABAD YEARLY CHART 2024" },
+    { id: 6, title: "VARANASI YEARLY CHART 2024" },
+    { id: 7, title: "SIKANDERPUR YEARLY CHART 2024" },
+    { id: 8, title: "SURYA YEARLY CHART 2024" },
+    { id: 9, title: "GALI YEARLY CHART 2024" },
+    { id: 10, title: "DELHI BAZAR YEARLY CHART 2024" },
   ];
 
   return (
@@ -20,7 +20,7 @@ const ChartOne = () => {
         A1-satta provides all kind of satta king results everyday.
       </h1>
       <h1 className="capitalize bg-gradient2 text-3xl py-3 text-white font-semibold text-center">
-        B1 Satta Play Chart 2025
+        B1 Satta Play Chart 2024
       </h1>
       <div className="bg-gradientredblack2 h-full py-10">
         <div className="container mx-auto max-sm:px-3 px-4 py-5">
@@ -43,4 +43,4 @@ const ChartOne = () => {
   );
 };
 
-export default ChartOne;
+export default ChartTwo;
