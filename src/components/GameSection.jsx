@@ -179,7 +179,9 @@ const GameSection = () => {
         {highlightGame && (
           <div className="bg-gradient mt-4 p-3 text-center w-full mx-auto">
             {/* Place Name */}
-            <p className="text-3xl font-black mb-4">दिसावर</p>
+            <p className="text-3xl font-semibold text-white mb-4">
+              {highlightGame.name}
+            </p>
 
             <div className="flex items-center gap-3 justify-center max-w-[350px] mx-auto">
               {/* Previous Day Number */}
@@ -240,7 +242,7 @@ const GameSection = () => {
 
             <p className="mt-5 text-white text-xl">💸 Payment Option 💸</p>
             <p className="text-white">
-              PAYTM//BANK TRANSFER//PHONE PAY//GOOGLE PAY =&lt; ⏺️9996252688⏺️
+              PAYTM//BANK TRANSFER//PHONE PAY//GOOGLE PAY =&lt; ⏺️9034460384⏺️
               <br />
               ==========================
               <br />
@@ -254,7 +256,9 @@ const GameSection = () => {
               <br />
               हरूफ रेट 100-----960
             </p>
-            <p className="text-white my-2">♕♕ &nbsp;MITTAL BHAI KHAIWAL &nbsp;♕♕</p>
+            <p className="text-white my-2">
+              ♕♕ &nbsp;MITTAL BHAI KHAIWAL &nbsp;♕♕
+            </p>
             <p className="text-white">
               <Link target="_blank" href="https://wa.me/+919034460384">
                 Game play करने के लिये नीचे लिंक पर क्लिक करे
