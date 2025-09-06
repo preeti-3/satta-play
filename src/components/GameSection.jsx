@@ -196,7 +196,7 @@ const GameSection = () => {
               <span className="text-xl font-semibold">
                 {nextGame && nextGame.name === highlightGame.name ? (
                   <Image
-                    className="mx-auto -mt-2"
+                    className="mx-auto -mt-2" 
                     alt="wait icon"
                     width={40}
                     height={40}
