@@ -179,7 +179,7 @@ const GameSection = () => {
         {highlightGame && (
           <div className="bg-gradient2 mt-4 p-3 text-center w-full mx-auto">
             {/* Place Name */}
-            <p className="text-3xl font-black mb-4">दिसावर</p>
+            <p className="text-3xl font-black mb-4">{highlightGame.name}</p>
 
             <div className="flex items-center gap-3 justify-center max-w-[350px] mx-auto">
               {/* Previous Day Number */}

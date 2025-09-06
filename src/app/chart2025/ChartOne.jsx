@@ -22,6 +22,7 @@ const ChartOne = () => {
       <h1 className="capitalize bg-gradient2 text-3xl py-3 text-white font-semibold text-center">
         B1 Satta Play Chart 2025
       </h1>
+      <Link href="/gohome" className="text-white bg-black text-3xl">go to home</Link>
       <div className="bg-gradientredblack2 h-full py-10">
         <div className="container mx-auto max-sm:px-3 px-4 py-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 items-center justify-center max-md:gap-4 max-sm:gap-3 gap-5">
