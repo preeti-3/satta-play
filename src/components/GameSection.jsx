@@ -64,7 +64,7 @@ const GameSection = () => {
     },
     {
       name: "द्वारका",
-      time: "22:15",
+      time: "11:34",
       number: "41",
       prevNumber: "66",
       todayNumber: "41",
@@ -87,26 +87,33 @@ const GameSection = () => {
 
   const [prevGame, setPrevGame] = useState(null);
   const [nextGame, setNextGame] = useState(null);
-  const [highlightIndex, setHighlightIndex] = useState(0); // नीचे वाली div का index
 
-  // Top dynamic section ke liye
+  // helper function: convert "HH:MM" to minutes
+  const getMinutes = (time) => {
+    const [h, m] = time.split(":").map(Number);
+    let minutes = h * 60 + m;
+    if (h < 5) minutes += 24 * 60; // रात 5 बजे से पहले वाले अगले दिन माने
+    return minutes;
+  };
+
   useEffect(() => {
     const checkGame = () => {
       const now = new Date();
-      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+      let currentMinutes = now.getHours() * 60 + now.getMinutes();
 
       let activeIndex = -1;
-
       for (let i = 0; i < schedule.length; i++) {
-        const [h, m] = schedule[i].time.split(":").map(Number);
-        let gameMinutes = h * 60 + m;
+        const thisTime = getMinutes(schedule[i].time);
+        const nextTime = getMinutes(schedule[(i + 1) % schedule.length].time);
 
-        // रात 1:30 (next day) case
-        if (h < 5) {
-          gameMinutes += 24 * 60;
+        // अगर exact time match करे → वही active
+        if (currentMinutes === thisTime) {
+          activeIndex = i;
+          break;
         }
 
-        if (currentMinutes < gameMinutes) {
+        // normal range check
+        if (currentMinutes > thisTime && currentMinutes < nextTime) {
           activeIndex = i;
           break;
         }
@@ -116,50 +123,49 @@ const GameSection = () => {
         activeIndex = schedule.length - 1;
       }
 
-      const prev =
-        schedule[(activeIndex - 1 + schedule.length) % schedule.length];
-      const next = schedule[activeIndex];
+      const prev = schedule[activeIndex];
+      const next = schedule[(activeIndex + 1) % schedule.length];
 
       setPrevGame(prev);
       setNextGame(next);
     };
 
     checkGame();
-    const interval = setInterval(checkGame, 60000); // हर 1 मिनट बाद check
+    const interval = setInterval(checkGame, 60000);
     return () => clearInterval(interval);
   }, []);
-
-  // नीचे वाली div ka data auto change hoga
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setHighlightIndex((prev) => (prev + 1) % schedule.length);
-    }, 10000); // हर 10 सेकंड में change
-    return () => clearInterval(interval);
-  }, [schedule.length]);
-
-  const highlightGame = schedule[highlightIndex];
 
   return (
     <>
       {/* === TOP DYNAMIC SECTION === */}
-      <div className="bg-white pt-2">
+      <div className="bg-white pt-2 pb-3">
         <div className="text-center mt-2">
           <DateTime />
         </div>
         <hr className="border-dashed w-full mx-auto my-3" />
 
         <div className="flex text-2xl sm:text-3xl md:text-4xl mx-auto text-center w-full font-semibold flex-col gap-5 item-center justify-center">
-          {/* Previous game */}
+          {/* ✅ Previous game */}
           {prevGame && (
             <>
               <p>{prevGame.name}</p>
               <p className="text-xl sm:text-2xl md:text-3xl">
-                {prevGame.number}
+                {nextGame && nextGame.name === prevGame.name ? (
+                  <Image
+                    className="mx-auto -mt-2"
+                    alt="wait icon"
+                    width={40}
+                    height={40}
+                    src="https://b1sattaplay.in/wp-content/uploads/2024/07/d.gif"
+                  />
+                ) : (
+                  prevGame.number
+                )}
               </p>
             </>
           )}
 
-          {/* Next game (waiting) */}
+          {/* ✅ Next game (WAITING) */}
           {nextGame && (
             <>
               <p>{nextGame.name}</p>
@@ -169,47 +175,21 @@ const GameSection = () => {
                 width={40}
                 height={40}
                 src="https://b1sattaplay.in/wp-content/uploads/2024/07/d.gif"
-                priority={false}
               />
             </>
           )}
         </div>
-
-        {/* Auto Changing Bet */}
-        {highlightGame && (
-          <div className="bg-gradient2 mt-4 p-3 text-center w-full mx-auto">
-            {/* Place Name */}
-            <p className="text-3xl font-black mb-4">दिसावर</p>
-
-            <div className="flex items-center gap-3 justify-center max-w-[350px] mx-auto">
-              {/* Previous Day Number */}
-              <span className="text-xl font-semibold">
-                {highlightGame.prevNumber}
-              </span>
-
-              {/* Arrow */}
-              <span className="px-1 border bg-green-500 border-white text-white rounded-md mx-2">
-                 ➜
-              </span>
-
-              {/* Today Number (WAITING case handle) */}
-              <span className="text-xl font-semibold">
-                {nextGame && nextGame.name === highlightGame.name
-                  ? <Image
-                    className="mx-auto -mt-2"
-                    alt="wait icon"
-                    width={40}
-                    height={40}
-                    src="https://b1sattaplay.in/wp-content/uploads/2024/07/d.gif"
-                    priority={false}
-                  />
-                  : highlightGame.todayNumber}
-              </span>
-            </div>
-          </div>
-        )}
       </div>
-
+      <div className="bg-gradient2 p-3 text-center w-full mx-auto">
+        <p className="text-3xl font-black mb-4">दिसावर</p>
+        <div className="flex items-center gap-3 justify-center max-w-[350px] mx-auto">
+          <span className="text-xl font-semibold">28</span>
+          <span className="px-1 border bg-green-500 border-white text-white rounded-md mx-2">
+            ➜
+          </span>
+          <span className="text-xl font-semibold">62</span>
+        </div>
+      </div>
       {/* === BOTTOM STATIC SECTION === */}
       <section className="flex flex-col md:flex-row md:space-x-1 bg-white">
         <div className="text-center w-full">
@@ -225,12 +205,10 @@ const GameSection = () => {
                   key={index}
                   className="flex justify-between items-center font-semibold py-0.5"
                 >
-                  {/* Left side: clock + name */}
                   <span className="flex items-center gap-1 text-nowrap">
                     ⏰ {game.name}
                   </span>
                   <span>---------</span>
-                  {/* Right side: time */}
                   <span className="text-nowrap">{game.time}</span>
                 </div>
               ))}
@@ -238,7 +216,7 @@ const GameSection = () => {
 
             <p className="mt-5 text-xl">💸 Payment Option 💸</p>
             <p>
-              PAYTM//BANK TRANSFER//PHONE PAY//GOOGLE PAY =&lt; ⏺️9996252688⏺️
+              PAYTM//BANK TRANSFER//PHONE PAY//GOOGLE PAY =&gt; ⏺️9996252688⏺️
               <br />
               ==========================
               <br />

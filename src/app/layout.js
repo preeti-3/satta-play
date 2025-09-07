@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
         <Link
           className="fixed bottom-6 right-6"
           target="_blank"
-          href="https://wa.me/+919817050720"
+          href="https://wa.me/+919034460384"
         >
           <Image
             className="max-sm:!size-14"
@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
         </Link>
         <p className="max-w-[1140px] text-center mx-auto mt-4 px-3 pb-4 sm:text-base text-xs font-medium">
           !! DISCLAIMER :-{" "}
-          <Link href="http:/sattaplay.in" className="text-[#f2295be9] font-bold hover:text-[#f2295b]">http:/sattaplay.in</Link> is a
+          <Link href="http:/B1sattaplay.in" className="text-[#f2295be9] font-bold hover:text-[#f2295b]">http:/B1sattaplay.in</Link> is a
           non-commercial website. Viewing This Website Is Your Own Risk, All The
           Information Shown On Website Is Sponsored And We Warn You That Matka
           Gambling/Satta May Be Banned Or Illegal In Your Country ... , We Are
