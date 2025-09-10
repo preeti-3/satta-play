@@ -6,135 +6,66 @@ import DateTime from "./DateTime";
 
 const GameSection = ({ data, setting, disawarData }) => {
   const schedule = [
-    {
-      name: "सदर बाजार",
-      time: "13:20",
-      number: "45",
-      prevNumber: "72",
-      todayNumber: "45",
-    },
-    {
-      name: "ग्वालियर",
-      time: "14:20",
-      number: "62",
-      prevNumber: "33",
-      todayNumber: "62",
-    },
-    {
-      name: "दिल्ली मटका",
-      time: "15:20",
-      number: "27",
-      prevNumber: "49",
-      todayNumber: "27",
-    },
-    {
-      name: "श्री गणेश",
-      time: "16:20",
-      number: "84",
-      prevNumber: "65",
-      todayNumber: "84",
-    },
-    {
-      name: "आगरा",
-      time: "17:20",
-      number: "11",
-      prevNumber: "20",
-      todayNumber: "11",
-    },
-    {
-      name: "फरीदाबाद",
-      time: "17:50",
-      number: "32",
-      prevNumber: "59",
-      todayNumber: "32",
-    },
-    {
-      name: "अलवर",
-      time: "19:20",
-      number: "90",
-      prevNumber: "73",
-      todayNumber: "90",
-    },
-    {
-      name: "गाज़ियाबाद",
-      time: "20:50",
-      number: "75",
-      prevNumber: "18",
-      todayNumber: "75",
-    },
-    {
-      name: "द्वारका",
-      time: "11:34",
-      number: "41",
-      prevNumber: "66",
-      todayNumber: "41",
-    },
-    {
-      name: "गली",
-      time: "23:20",
-      number: "11",
-      prevNumber: "50",
-      todayNumber: "11",
-    },
-    {
-      name: "दिसावर",
-      time: "01:30",
-      number: "62",
-      prevNumber: "28",
-      todayNumber: "62",
-    },
+    { name: "IPL", time: "12:55 PM", number: "45" },
+    { name: "SIKANDERPUR", time: "01:55 PM", number: "62" },
+    { name: "DELHI BAZAR", time: "03:00 PM", number: "27" },
+    { name: "SHRI GANESH", time: "04:30 PM", number: "84" },
+    { name: "FARIDABAD ", time: "05:45 PM", number: "11" },
+    { name: "SURYA ", time: "07:25 PM", number: "32" },
+    { name: "GAZIYABAD ", time: "08:55 PM", number: "90" },
+    { name: "VARANASI", time: "09:55 PM", number: "75" },
+    { name: "GALI ", time: "11:20 PM", number: "41" },
+    { name: "DISAWER ", time: "04:30 AM", number: "11" },
   ];
 
   const [prevGame, setPrevGame] = useState(null);
   const [nextGame, setNextGame] = useState(null);
 
-  // helper function: convert "HH:MM" to minutes
+  // Convert "HH:MM AM/PM" to total minutes
   const getMinutes = (time) => {
-    const [h, m] = time.split(":").map(Number);
-    let minutes = h * 60 + m;
-    if (h < 5) minutes += 24 * 60; // रात 5 बजे से पहले वाले अगले दिन माने
-    return minutes;
+    let [h, rest] = time.split(":");
+    let [m, period] = rest.split(" ");
+    h = parseInt(h);
+    m = parseInt(m);
+    if (period === "PM" && h !== 12) h += 12;
+    if (period === "AM" && h === 12) h = 0;
+    let totalMinutes = h * 60 + m;
+    if (h < 5) totalMinutes += 24 * 60; // Early morning as next day
+    return totalMinutes;
   };
 
   useEffect(() => {
     const checkGame = () => {
       const now = new Date();
       let currentMinutes = now.getHours() * 60 + now.getMinutes();
+      if (currentMinutes < 5 * 60) currentMinutes += 24 * 60;
+
+      const sortedSchedule = [...schedule].sort(
+        (a, b) => getMinutes(a.time) - getMinutes(b.time)
+      );
 
       let activeIndex = -1;
-      for (let i = 0; i < schedule.length; i++) {
-        const thisTime = getMinutes(schedule[i].time);
-        const nextTime = getMinutes(schedule[(i + 1) % schedule.length].time);
-
-        // अगर exact time match करे → वही active
-        if (currentMinutes === thisTime) {
-          activeIndex = i;
-          break;
-        }
-
-        // normal range check
-        if (currentMinutes > thisTime && currentMinutes < nextTime) {
+      for (let i = 0; i < sortedSchedule.length; i++) {
+        const thisTime = getMinutes(sortedSchedule[i].time);
+        const nextTime = getMinutes(
+          sortedSchedule[(i + 1) % sortedSchedule.length].time
+        );
+        if (currentMinutes >= thisTime && currentMinutes < nextTime) {
           activeIndex = i;
           break;
         }
       }
 
-      if (activeIndex === -1) {
-        activeIndex = schedule.length - 1;
-      }
+      if (activeIndex === -1) activeIndex = sortedSchedule.length - 1;
 
-      const prev = schedule[activeIndex];
-      const next = schedule[(activeIndex + 1) % schedule.length];
-
-      setPrevGame(prev);
-      setNextGame(next);
+      setPrevGame(sortedSchedule[activeIndex]);
+      setNextGame(sortedSchedule[(activeIndex + 1) % sortedSchedule.length]);
     };
 
     checkGame();
     const interval = setInterval(checkGame, 60000);
     return () => clearInterval(interval);
   }, []);
-
   return (
     <>
       {/* === TOP DYNAMIC SECTION === */}
