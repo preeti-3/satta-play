@@ -2,16 +2,17 @@ import Link from "next/link";
 
 const ChartTwo = () => {
   const sattaLinks = [
-    { id: 1, title: "DISAWER YEARLY CHART 2024" },
-    { id: 2, title: "SHRI GANESH YEARLY 2024" },
-    { id: 3, title: "GAZIYABAD YEARLY CHART 2024" },
-    { id: 4, title: "IPL YEARLY CHART 2024" },
-    { id: 5, title: "FARIDABAD YEARLY CHART 2024" },
-    { id: 6, title: "VARANASI YEARLY CHART 2024" },
-    { id: 7, title: "SIKANDERPUR YEARLY CHART 2024" },
-    { id: 8, title: "SURYA YEARLY CHART 2024" },
-    { id: 9, title: "GALI YEARLY CHART 2024" },
-    { id: 10, title: "DELHI BAZAR YEARLY CHART 2024" },
+    { id: 1, title: "SADAR BAZAAR YEARLY CHART 2024" },
+    { id: 2, title: "GWALIOR YEARLY CHART 2024" },
+    { id: 3, title: "DELHI MATKA YEARLY CHART 2024" },
+    { id: 4, title: "SHRI GANESH YEARLY CHART 2024" },
+    { id: 5, title: "AGRA YEARLY CHART 2024" },
+    { id: 6, title: "FARIDABAD YEARLY CHART 2024" },
+    { id: 7, title: "ALWAR YEARLY CHART 2024" },
+    { id: 8, title: "GHAZIABAD YEARLY CHART 2024" },
+    { id: 9, title: "DWARKA YEARLY CHART 2024" },
+    { id: 10, title: "GALI YEARLY CHART 2024" },
+    { id: 11, title: "DISAWAR YEARLY CHART 2024" },
   ];
 
   return (

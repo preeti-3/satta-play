@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import DateTime from "./DateTime";
 
-const GameSection = () => {
+const GameSection = ({ data, setting, disawarData }) => {
   const schedule = [
     {
       name: "सदर बाजार",
@@ -144,31 +144,18 @@ const GameSection = () => {
         </div>
         <hr className="border-dashed w-full mx-auto my-3" />
 
-        <div className="flex text-2xl sm:text-3xl md:text-4xl mx-auto text-center w-full font-semibold flex-col gap-5 item-center justify-center">
+        <div className="flex text-2xl capitalize sm:text-3xl md:text-4xl mx-auto text-center w-full font-semibold flex-col gap-5 item-center justify-center">
           {/* ✅ Previous game */}
-          {prevGame && (
+          {data && (
             <>
-              <p>{prevGame.name}</p>
+              <p>{data.city}</p>
               <p className="text-xl sm:text-2xl md:text-3xl">
-                {nextGame && nextGame.name === prevGame.name ? (
-                  <Image
-                    className="mx-auto -mt-2"
-                    alt="wait icon"
-                    width={40}
-                    height={40}
-                    src="https://b1sattaplay.in/wp-content/uploads/2024/07/d.gif"
-                  />
-                ) : (
-                  prevGame.number
-                )}
+                {data.resultNumber}
               </p>
-            </>
-          )}
 
-          {/* ✅ Next game (WAITING) */}
-          {nextGame && (
-            <>
-              <p>{nextGame.name}</p>
+              {/* ✅ Next game (WAITING) */}
+
+              <p>{data.waitingCity}</p>
               <Image
                 className="mx-auto -mt-2"
                 alt="wait icon"
@@ -178,17 +165,29 @@ const GameSection = () => {
               />
             </>
           )}
+
         </div>
       </div>
       <div className="bg-gradient2 p-3 text-center w-full mx-auto">
         <p className="text-3xl font-black mb-4">दिसावर</p>
         <div className="flex items-center gap-3 justify-center max-w-[350px] mx-auto">
-          <span className="text-xl font-semibold">28</span>
+          <span className="text-xl font-semibold">
+            {disawarData?.yesterday || "--"}
+          </span>
           <span className="px-1 border bg-green-500 border-white text-white rounded-md mx-2">
             ➜
           </span>
-          <span className="text-xl font-semibold">62</span>
-        </div>
+          <span className="text-xl font-semibold">
+            {disawarData?.today || (
+              <Image
+                className="inline"
+                alt="wait icon"
+                width={20}
+                height={20}
+                src="https://b1sattaplay.in/wp-content/uploads/2024/07/d.gif"
+              />
+            )}
+          </span>        </div>
       </div>
       {/* === BOTTOM STATIC SECTION === */}
       <section className="flex flex-col md:flex-row md:space-x-1 bg-white">
@@ -230,14 +229,14 @@ const GameSection = () => {
               <br />
               हरूफ रेट 100-----960
             </p>
-            <p>♕♕ &nbsp;SAMEER BHAI KHAIWAL &nbsp;♕♕</p>
+            <p className="uppercase">♕♕ &nbsp;{setting?.contactName} BHAI KHAIWAL &nbsp;♕♕</p>
             <p>
               <Link target="_blank" href="https://wa.me/+917206591251">
                 Game play करने के लिये नीचे लिंक पर क्लिक करे
               </Link>
             </p>
             <div className="mx-auto max-w-[300px] mt-4 hover:scale-110 transition-all duration-300">
-              <Link target="_blank" href="https://wa.me/+919817050720">
+              <Link target="_blank" href={`https://wa.me/+${setting?.whatsappNumber}`}>
                 <Image
                   className="max-sm:w-[200px] mx-auto max-sm:h-16"
                   width={300}
